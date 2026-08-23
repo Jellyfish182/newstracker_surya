@@ -1002,7 +1002,11 @@ def _gemini_batch(client, batch, model):
             # 429 = free-tier rate limit. Back off and try again; anything
             # else (bad key, bad model name) should surface immediately.
             if "429" not in str(exc) and "RESOURCE_EXHAUSTED" not in str(exc).upper():
-                raise
+                raise            last_error = exc
+            _time.sleep(2 ** attempt * 5)
+        except errors.ServerError as exc:
+            # 503 UNAVAILABLE means the model is momentarily overloaded on
+            # Google's side. Wait and retry rather than dropping the batch.
             last_error = exc
             _time.sleep(2 ** attempt * 5)
         except json.JSONDecodeError as exc:
