@@ -104,8 +104,6 @@ GEMINI_MODELS = {
 
 DEFAULT_GEMINI_MODEL = "gemini-3.7-flash"
 
-DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
-
 GEMINI_WORKERS = 2       # free tier throttles by requests per minute
 GEMINI_RETRIES = 4
 
