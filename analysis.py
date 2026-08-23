@@ -88,19 +88,21 @@ DEFAULT_MODEL = "claude-haiku-4-5"
 # Rate limits are per-minute rather than per-dollar, hence the lower
 # concurrency and the backoff in _gemini_batch.
 GEMINI_MODELS = {
-    "gemini-2.5-flash": {
-        "label": "Gemini 2.5 Flash - free",
-        "note": "Free tier. Reads each article properly. Best free option.",
+    "gemini-3.7-flash": {
+        "label": "Gemini 3.7 Flash - free, latest",
+        "note": "Newest Flash model. Best judgement on the free tier.",
     },
-    "gemini-2.5-flash-lite": {
-        "label": "Gemini 2.5 Flash Lite - free, fastest",
-        "note": "Free tier with a higher request allowance. Slightly blunter judgement.",
+    "gemini-3.6-flash": {
+        "label": "Gemini 3.6 Flash - free",
+        "note": "Previous generation. Use if 3.7 is unavailable.",
     },
-    "gemini-2.0-flash": {
-        "label": "Gemini 2.0 Flash - free, fallback",
-        "note": "Use if the 2.5 models are unavailable in your region.",
+    "gemini-3.5-flash-lite": {
+        "label": "Gemini 3.5 Flash Lite - free, fastest",
+        "note": "Highest request allowance, slightly blunter judgement.",
     },
 }
+
+DEFAULT_GEMINI_MODEL = "gemini-3.7-flash"
 
 DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
 
